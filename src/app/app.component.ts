@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { WidgetModel } from './models/weather.model';
+import { widgetData$ } from '../assets/fixtures/data';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   public title = 'weatherVidgetNg21092018';
+
+  public widgetData$: Observable<WidgetModel[]> = widgetData$;
 }
