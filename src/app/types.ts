@@ -15,6 +15,7 @@ export interface Weather {
 export interface WidgetModel {
   type: string;
   img: string;
+  name: string;
   address: string;
   phone: string;
   _id: string;

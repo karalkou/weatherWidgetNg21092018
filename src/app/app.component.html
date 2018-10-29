@@ -3,12 +3,12 @@
   <div class="element-left">
     <div class="element-bg-img"><img src="../assets/images/1.jpg" alt="" class="img-responsive"></div>
     <div class="element-left-bottom">
-      <app-main [widgetData]="widgetDataHandled"></app-main>
+      <app-main [widgetData]="widgetDataHandled" (selectType)="bubbleUpType($event)"></app-main>
     </div>
   </div>
   <div class="element-right">
-    <app-weather-card></app-weather-card>
-    <app-social-card></app-social-card>
+    <app-weather-card [selectedType]="selectedType"></app-weather-card>
+    <app-social-card [selectedType]="selectedType"></app-social-card>
   </div>
   <div class="clear"></div>
 </div>

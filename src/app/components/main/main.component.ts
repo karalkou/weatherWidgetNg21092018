@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { WidgetModel } from '../../types';
 
 @Component({
@@ -13,7 +13,18 @@ export class MainComponent implements OnInit {
   @Input()
   public widgetData: WidgetModel[];
 
+  @Output()
+  public selectType: EventEmitter<string> = new EventEmitter();
+
   public typeList: Array<string>;
+
+  public getType(e: MouseEvent) {
+    e.preventDefault();
+
+    const target: HTMLElement = e.target as HTMLElement;
+
+    this.selectType.emit(target.dataset.type);
+  }
 
   ngOnInit() {
     const typeListArr: string[] = [];

@@ -5,7 +5,8 @@ const widgetData: WidgetModel[] = [
   {
     _id: '01',
     img: 'assets/images/aguamarina_res.png',
-    address: 'BQ Aguamarina Boutique;Sant Antoni de la Platja,;41, Can Pastilla, Spain',
+    name: 'BQ Aguamarina Boutique',
+    address: 'Sant Antoni de la Platja,;41, Can Pastilla, Spain',
     phone: '9025706477',
     weather: {
       title: 'Sunny bolearic islands',
@@ -24,7 +25,8 @@ const widgetData: WidgetModel[] = [
   {
     _id: '02',
     img: 'assets/images/railay_res.png',
-    address: 'Railay Village Resort;544 Moo 2, Ao Nang Muang,;81000 Railay Beach, Thailand',
+    name: 'Railay Village Resort',
+    address: '544 Moo 2, Ao Nang Muang,;81000 Railay Beach, Thailand',
     phone: '3033861123',
     weather: {
       title: 'Do not forget the sunscreen',
@@ -43,6 +45,7 @@ const widgetData: WidgetModel[] = [
   {
     _id: '03',
     img: 'assets/images/go_fishing_res.png',
+    name: 'о. Рыбное',
     address: 'о. Рыбное',
     phone: '1234567894',
     weather: {
@@ -62,7 +65,8 @@ const widgetData: WidgetModel[] = [
   {
     _id: '04',
     img: 'assets/images/tui_res.png',
-    address: 'TUI;г.Киев,;ул. Трехсвятительская, 5/1',
+    name: 'TUI',
+    address: 'г.Киев,;ул. Трехсвятительская, 5/1',
     phone: '0986071482',
     weather: {
       title: 'Go to bed',
@@ -81,7 +85,8 @@ const widgetData: WidgetModel[] = [
   {
     _id: '05',
     img: 'assets/images/joinup_res.png',
-    address: 'Join UP!;01033, г.Киев,;ул. Жилянская, 55',
+    name: 'Join UP!',
+    address: '01033, г.Киев,;ул. Жилянская, 55',
     phone: '0986071482',
     weather: {
       title: 'Time to sleep',
