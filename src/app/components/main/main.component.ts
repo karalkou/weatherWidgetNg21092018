@@ -8,13 +8,17 @@ import { WidgetModel } from '../../types';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   @Input()
   public widgetData: WidgetModel[];
 
   @Output()
   public selectType: EventEmitter<string> = new EventEmitter();
+
+  @Output()
+  public selectId: EventEmitter<string> = new EventEmitter();
 
   public selectedType: string;
 
@@ -25,8 +29,16 @@ export class MainComponent implements OnInit {
     const target: HTMLElement = e.target as HTMLElement;
 
     this.selectedType = target.dataset.type;
-    console.log('selectedType in main.component: ', this.selectedType);
     this.selectType.emit(this.selectedType);
+  }
+
+  public getId(id, firstItemId) {
+    if (id) {
+      this.selectId.emit(id);
+    } else {
+      this.selectId.emit(firstItemId);
+    }
+
   }
 
   ngOnInit() {

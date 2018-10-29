@@ -10,7 +10,7 @@ export class SocialCardComponent implements OnInit {
   constructor() { }
 
   @Input()
-  public selectedType: string;
+  public selectedSocialInfo: string;
 
   ngOnInit() {
   }

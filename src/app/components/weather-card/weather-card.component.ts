@@ -10,7 +10,7 @@ export class WeatherCardComponent implements OnInit {
   constructor() { }
 
   @Input()
-  public selectedType: string;
+  public selectedWeather: string;
 
   ngOnInit() {
   }

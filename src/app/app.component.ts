@@ -13,16 +13,16 @@ export class AppComponent implements OnInit, OnDestroy {
   public subscription: Subscription;
 
   public selectedType: string = 'tours';
-  // public selectedDataItem: WidgetModel;
+  public selectedDataItem: WidgetModel;
 
-  public bubbleUpType(value) {
-    console.log('value: ', value);
+  public bubbleUpType(value: string): void {
     this.selectedType = value;
+  }
 
-    // const selectedDataItem = this.widgetDataHandled.filter((item: WidgetModel) => {
-    //   return item.type === 'tours';
-    // });
-    // console.log('selectedDataItem: ', selectedDataItem);
+  public getItemById(id: string): void {
+    [this.selectedDataItem] = this.widgetDataHandled.filter((item: WidgetModel) => {
+      return item._id === id;
+    });
   }
 
   ngOnInit(): void {
