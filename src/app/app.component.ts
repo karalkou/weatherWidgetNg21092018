@@ -9,16 +9,20 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  public title = 'weatherVidgetNg21092018';
-
   public widgetDataHandled: WidgetModel[];
   public subscription: Subscription;
 
-  public selectedType: string;
+  public selectedType: string = 'tours';
+  // public selectedDataItem: WidgetModel;
 
-  public bubbleUpType(e) {
-    console.log('e: ', e);
-    this.selectedType = e;
+  public bubbleUpType(value) {
+    console.log('value: ', value);
+    this.selectedType = value;
+
+    // const selectedDataItem = this.widgetDataHandled.filter((item: WidgetModel) => {
+    //   return item.type === 'tours';
+    // });
+    // console.log('selectedDataItem: ', selectedDataItem);
   }
 
   ngOnInit(): void {

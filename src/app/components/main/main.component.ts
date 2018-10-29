@@ -16,14 +16,17 @@ export class MainComponent implements OnInit {
   @Output()
   public selectType: EventEmitter<string> = new EventEmitter();
 
+  public selectedType: string;
+
   public typeList: Array<string>;
 
   public getType(e: MouseEvent) {
     e.preventDefault();
-
     const target: HTMLElement = e.target as HTMLElement;
 
-    this.selectType.emit(target.dataset.type);
+    this.selectedType = target.dataset.type;
+    console.log('selectedType in main.component: ', this.selectedType);
+    this.selectType.emit(this.selectedType);
   }
 
   ngOnInit() {

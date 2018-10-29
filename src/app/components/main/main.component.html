@@ -19,7 +19,7 @@
   <div class="activity_box">
     <!-- -------- activity items -------- -->
     <div class="scrollbar" id="style-2">
-      <div class="activity-row" *ngFor="let item of widgetData">
+      <div class="activity-row" *ngFor="let item of widgetData | activityFilter:selectedType">
         <div class="activity-desc">
           <h5><i>{{item.name}}</i></h5>
           <h5>{{item.address}}</h5>
