@@ -13,6 +13,7 @@
   </ul>
   <!-- /-------- menu -------- -->
 </div>
+
 <div class="village">
   <h3>Righteous indignation & like</h3>
   <span class="line"> </span>
@@ -28,7 +29,7 @@
         style="cursor: pointer"
         *ngFor="let item of widgetData | activityFilter:selectedType;"
       >
-        <!-- как вытащить текущий item и передать в компонент? -->
+        <!-- как вытащить текущий item и передать в компонент? иначе приходится повторять логику пайпа -->
         <div class="activity-desc" (click)="getId(item._id)">
           <h5><i>{{item.name}}</i></h5>
           <h5>{{item.address}}</h5>

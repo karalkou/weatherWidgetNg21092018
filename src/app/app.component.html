@@ -1,6 +1,7 @@
 <div class="app-content" *ngIf="widgetDataHandled; else loadingTemplate">
   <h1>Hot Weather Widget</h1>
   <div class="element">
+
     <div class="element-left">
       <div class="element-bg-img">
         <img src="../assets/images/1.jpg" alt="" class="img-responsive">
@@ -13,12 +14,14 @@
         ></app-main>
       </div>
     </div>
+
     <div class="element-right">
       <app-weather-card [selectedWeather]="selectedDataItem?.weather"></app-weather-card>
       <app-social-card [selectedSocialInfo]="selectedDataItem?.social_info"></app-social-card>
     </div>
     <div class="clear"></div>
   </div>
+
   <div class="copy-right">
     <p>
       © 2015 Hot Weather Widget. All rights reserved | Design by

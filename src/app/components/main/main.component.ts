@@ -7,9 +7,7 @@ import { WidgetModel } from '../../types';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-
-  constructor() {
-  }
+  constructor() {}
 
   @Input()
   public widgetData: WidgetModel[];
@@ -21,9 +19,12 @@ export class MainComponent implements OnInit {
   public selectId: EventEmitter<string> = new EventEmitter();
 
   public selectedType: string;
-
   public typeList: Array<{ type: string, name: string }>;
 
+  /**
+   * Gets selected type and emits it
+   * @param e - event object
+   */
   public getType(e: MouseEvent) {
     e.preventDefault();
     const target: HTMLElement = e.target as HTMLElement;
@@ -32,6 +33,10 @@ export class MainComponent implements OnInit {
     this.selectType.emit(this.selectedType);
   }
 
+  /**
+   * Emits selected activity id
+   * @param id - selected item's id
+   */
   public getId(id) {
     this.selectId.emit(id);
 
@@ -44,6 +49,7 @@ export class MainComponent implements OnInit {
       typeListArr.push(item.type);
     });
 
+    // непонятная ошибка с Set. Поставил downlevelIteration, но не пропадает
     this.typeList = [...(new Set(typeListArr))]
       .map((item) => {
         return {
@@ -52,5 +58,4 @@ export class MainComponent implements OnInit {
         };
       });
   }
-
 }
