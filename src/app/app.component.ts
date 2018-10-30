@@ -10,13 +10,19 @@ import { Subscription } from 'rxjs';
 })
 export class AppComponent implements OnInit, OnDestroy {
   public widgetDataHandled: WidgetModel[];
+  public selectedDataItem: WidgetModel;
   public subscription: Subscription;
 
-  public selectedType: string = 'tours';
-  public selectedDataItem: WidgetModel;
+  public getFirstOfSelectedType(selectedType: string): void {
+    if (!selectedType) {
+      this.selectedDataItem = this.widgetDataHandled[0];
+    }
 
-  public bubbleUpType(value: string): void {
-    this.selectedType = value;
+    const filteredByTypeData: WidgetModel[] = this.widgetDataHandled.filter((item: WidgetModel) => {
+      return item.type === selectedType;
+    });
+
+    this.selectedDataItem = filteredByTypeData[0];
   }
 
   public getItemById(id: string): void {
@@ -26,7 +32,11 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.subscription = widgetData$.subscribe((data: WidgetModel[]) => this.widgetDataHandled = data);
+    this.subscription = widgetData$
+      .subscribe((data: WidgetModel[]) => {
+        this.widgetDataHandled = data;
+        this.selectedDataItem = this.widgetDataHandled[0];
+      });
   }
 
   ngOnDestroy(): void {

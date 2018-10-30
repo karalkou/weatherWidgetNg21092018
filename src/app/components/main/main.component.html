@@ -4,10 +4,10 @@
     <li *ngFor="let item of typeList">
       <a
         href="#"
-        [attr.data-type]="item"
+        [attr.data-type]="item.type"
         (click)="getType($event)"
       >
-        {{item}}
+        {{item.name}}
       </a>
     </li>
   </ul>
@@ -18,17 +18,18 @@
   <span class="line"> </span>
   <div class="activity_box">
     <!-- -------- activity items -------- -->
+    <style>
+      .activity-desc{ cursor: pointer; }
+      .activity-desc:hover { background-color: lightgrey; }
+    </style>
     <div class="scrollbar" id="style-2">
-      <style>
-        .activity-desc{ cursor: pointer; }
-        .activity-desc:hover { background-color: lightgrey; }
-      </style>
       <div
         class="activity-row"
         style="cursor: pointer"
-        *ngFor="let item of widgetData | activityFilter:selectedType; first as firstItem"
+        *ngFor="let item of widgetData | activityFilter:selectedType;"
       >
-        <div class="activity-desc" (click)="getId(item._id, firstItem._id)">
+        <!-- как вытащить текущий item и передать в компонент? -->
+        <div class="activity-desc" (click)="getId(item._id)">
           <h5><i>{{item.name}}</i></h5>
           <h5>{{item.address}}</h5>
           <h6>{{item.phone}}</h6>

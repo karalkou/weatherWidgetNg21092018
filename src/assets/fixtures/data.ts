@@ -1,5 +1,6 @@
 import { of } from 'rxjs';
 import { WidgetModel } from '../../app/types';
+import { delay } from 'rxjs/operators';
 
 const widgetData: WidgetModel[] = [
   {
@@ -10,13 +11,13 @@ const widgetData: WidgetModel[] = [
     phone: '9025706477',
     weather: {
       title: 'Sunny bolearic islands',
-      icon: 'sunny',
+      icon: 'assets/images/weather/sunny.png',
       water: 23,
       temperature: 34
     },
     social_info: {
       title: 'Be the part of sunny Spain',
-      img: 'aguamarina',
+      img: 'assets/images/social/aguamarina.png',
       followers: 345,
       following: 2567
     },
@@ -30,13 +31,13 @@ const widgetData: WidgetModel[] = [
     phone: '3033861123',
     weather: {
       title: 'Do not forget the sunscreen',
-      icon: 'sunny',
+      icon: 'assets/images/weather/sunny.png',
       water: 30,
       temperature: 40
     },
     social_info: {
       title: 'You gotta go here! :)',
-      img: 'railay',
+      img: 'assets/images/social/railay.png',
       followers: 156000,
       following: 80000
     },
@@ -50,13 +51,13 @@ const widgetData: WidgetModel[] = [
     phone: '1234567894',
     weather: {
       title: 'Don\'t forget raincoat',
-      icon: 'rainy',
+      icon: 'assets/images/weather/rainy.png',
       water: 14,
       temperature: 18
     },
     social_info: {
       title: 'Only for men',
-      img: 'go_fishing',
+      img: 'assets/images/social/go_fishing.png',
       followers: 1000,
       following: 999
     },
@@ -70,13 +71,13 @@ const widgetData: WidgetModel[] = [
     phone: '0986071482',
     weather: {
       title: 'Go to bed',
-      icon: 'night',
+      icon: 'assets/images/weather/night.png',
       water: 10,
       temperature: 28
     },
     social_info: {
       title: 'Tours for babushkas',
-      img: 'tui',
+      img: 'assets/images/social/tui.png',
       followers: 1,
       following: 1024
     },
@@ -90,13 +91,13 @@ const widgetData: WidgetModel[] = [
     phone: '0986071482',
     weather: {
       title: 'Time to sleep',
-      icon: 'night',
+      icon: 'assets/images/weather/night.png',
       water: 9,
       temperature: 27
     },
     social_info: {
       title: 'Tours for dedushkas',
-      img: 'joinup',
+      img: 'assets/images/social/joinup.png',
       followers: 3,
       following: 1024
     },
@@ -104,4 +105,6 @@ const widgetData: WidgetModel[] = [
   }
 ];
 
-export const widgetData$ = of(widgetData);
+export const widgetData$ = of(widgetData).pipe(
+    delay(2000)
+  );

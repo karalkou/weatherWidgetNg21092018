@@ -22,7 +22,7 @@ export class MainComponent implements OnInit {
 
   public selectedType: string;
 
-  public typeList: Array<string>;
+  public typeList: Array<{ type: string, name: string }>;
 
   public getType(e: MouseEvent) {
     e.preventDefault();
@@ -32,12 +32,8 @@ export class MainComponent implements OnInit {
     this.selectType.emit(this.selectedType);
   }
 
-  public getId(id, firstItemId) {
-    if (id) {
-      this.selectId.emit(id);
-    } else {
-      this.selectId.emit(firstItemId);
-    }
+  public getId(id) {
+    this.selectId.emit(id);
 
   }
 
@@ -48,7 +44,13 @@ export class MainComponent implements OnInit {
       typeListArr.push(item.type);
     });
 
-    this.typeList = [...(new Set(typeListArr))];
+    this.typeList = [...(new Set(typeListArr))]
+      .map((item) => {
+        return {
+          type: item,
+          name: item.charAt(0).toUpperCase() + item.slice(1)
+        };
+      });
   }
 
 }

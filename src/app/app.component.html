@@ -1,22 +1,32 @@
-<h1>Hot Weather Widget</h1>
-<div class="element">
-  <div class="element-left">
-    <div class="element-bg-img"><img src="../assets/images/1.jpg" alt="" class="img-responsive"></div>
-    <div class="element-left-bottom">
-      <app-main
-        [widgetData]="widgetDataHandled"
-        (selectType)="bubbleUpType($event)"
-        (selectId)="getItemById($event)"
-      ></app-main>
+<div class="app-content" *ngIf="widgetDataHandled; else loadingTemplate">
+  <h1>Hot Weather Widget</h1>
+  <div class="element">
+    <div class="element-left">
+      <div class="element-bg-img">
+        <img src="../assets/images/1.jpg" alt="" class="img-responsive">
+      </div>
+      <div class="element-left-bottom">
+        <app-main
+          [widgetData]="widgetDataHandled"
+          (selectId)="getItemById($event)"
+          (selectType)="getFirstOfSelectedType($event)"
+        ></app-main>
+      </div>
     </div>
+    <div class="element-right">
+      <app-weather-card [selectedWeather]="selectedDataItem?.weather"></app-weather-card>
+      <app-social-card [selectedSocialInfo]="selectedDataItem?.social_info"></app-social-card>
+    </div>
+    <div class="clear"></div>
   </div>
-  <div class="element-right">
-    <app-weather-card [selectedWeather]="selectedDataItem?.weather"></app-weather-card>
-    <app-social-card [selectedSocialInfo]="selectedDataItem?.social_info"></app-social-card>
+  <div class="copy-right">
+    <p>
+      © 2015 Hot Weather Widget. All rights reserved | Design by
+      <a href="http://w3layouts.com/" target="_blank">W3layouts </a>
+    </p>
   </div>
-  <div class="clear"></div>
 </div>
-<div class="copy-right">
-  <p>© 2015 Hot Weather Widget. All rights reserved | Design by <a href="http://w3layouts.com/" target="_blank">
-    W3layouts </a></p>
-</div>
+
+<ng-template #loadingTemplate>
+  .....loading
+</ng-template>
