@@ -12,6 +12,7 @@ export class AppComponent implements OnInit, OnDestroy {
   public widgetDataHandled: WidgetModel[];
   public selectedDataItem: WidgetModel;
   public subscription: Subscription;
+  public img: string = 'assets/images/1.jpg';
 
   /**
    * Gets first item of selected type to provide it to other modules
